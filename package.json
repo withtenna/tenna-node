@@ -1,0 +1,22 @@
+{
+    "name": "tenna-node",
+    "version": "0.0.1",
+    "description": "Tenna API library for Node.js",
+    "homepage": "http://github.com/withtenna/tenna-node",
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/withtenna/tenna-node.git"
+    },
+    "author": {
+        "name": "Prontotype",
+        "url": "http://prontotype.us/"
+    },
+    "keywords": [
+        "tenna"
+    ],
+    "main": "lib/index.js",
+    "dependencies": {
+        "request": "2.x.x"
+    }
+}
+
