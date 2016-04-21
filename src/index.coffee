@@ -1,7 +1,5 @@
 request = require 'request'
 
-config = require '../config'
-
 base_url = 'http://api.tenna.io'
 
 createEvent = (device_id, kind, data, api_key, cb) ->
