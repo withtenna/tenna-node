@@ -5,8 +5,7 @@ base_url = 'http://api.tenna.io'
 createEvent = (device_id, kind, data, api_key, cb) ->
     request.post
         url: "#{base_url}/devices/#{device_id}/events/#{kind}.json"
-        form: data
-        json: true
+        json: data
         headers: {
             'api_key': api_key
         }
