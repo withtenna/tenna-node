@@ -25,4 +25,12 @@ Tenna = ({api_key, device_id}) ->
         , (err, resp, body) ->
             cb err, body
 
+    getState: (cb) ->
+        request.get
+            url: "#{base_url}/devices/#{device_id}/state.json"
+            headers: default_headers
+            json: true
+        , (err, resp, body) ->
+            cb err, body
+
 module.exports = Tenna
