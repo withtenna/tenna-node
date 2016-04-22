@@ -1,5 +1,5 @@
 somata = require 'somata'
-Tenna = require 'tenna-node/src'
+Tenna = require 'tenna-node'
 
 api_key = process.env.API_KEY
 device_id = process.env.DEVICE_ID
