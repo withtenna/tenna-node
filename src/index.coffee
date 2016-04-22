@@ -2,16 +2,27 @@ request = require 'request'
 
 base_url = 'http://api.tenna.io'
 
-createEvent = (device_id, kind, data, api_key, cb) ->
-    request.post
-        url: "#{base_url}/devices/#{device_id}/events/#{kind}.json"
-        json: data
-        headers: {
-            'api_key': api_key
-        }
-    , (err, resp, body) ->
-        cb err, body
+Tenna = ({api_key, device_id}) ->
 
-module.exports = ({api_key, device_id}) ->
+    default_headers = {
+        'api-key': api_key
+        'user-agent': 'Tenna API client'
+    }
+
     createEvent: (kind, data, cb) ->
-        createEvent(device_id, kind, data, api_key, cb)
+        request.post
+            url: "#{base_url}/devices/#{device_id}/events/#{kind}.json"
+            json: data
+            headers: default_headers
+        , (err, resp, body) ->
+            cb err, body
+
+    sendCommand: (method, args..., cb) ->
+        request.post
+            url: "#{base_url}/devices/#{device_id}/commands/#{method}.json"
+            json: args
+            headers: default_headers
+        , (err, resp, body) ->
+            cb err, body
+
+module.exports = Tenna
